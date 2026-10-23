@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.local
+*.tsbuildinfo
+.DS_Store
+output/
+.playwright-cli/
+.yuezhuang-data/
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
