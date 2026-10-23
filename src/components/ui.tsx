@@ -30,7 +30,7 @@ export function Modal({ open, onOpenChange, title, description, children, wide =
 }
 
 export function AssetImage({ asset, className = '', alt, eager = false }: { asset?: Asset; className?: string; alt?: string; eager?: boolean }) {
-  const { url, failed, setFailed } = useImageUrl(asset)
+  const { url, failed, setFailed } = useImageUrl(asset?.thumbnailSrc ? { ...asset, src: asset.thumbnailSrc } : asset)
   if (!asset || failed) return <div className={`image-placeholder ${className}`}><ImageOff size={25} /><span>{asset ? '图片暂不可用' : '添加作品封面'}</span></div>
   if (!url) return <div className={`image-placeholder ${className}`}><LoaderCircle className="spin" size={22} /></div>
   return <img src={url} alt={alt ?? asset.title} className={className} loading={eager ? 'eager' : 'lazy'} onError={() => setFailed(true)} />

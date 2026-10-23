@@ -1,0 +1,290 @@
+[
+  {
+    "id": "sample-ai-01-a",
+    "style": "韩系清透",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-01-b",
+    "style": "韩系清透",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-02-a",
+    "style": "自然裸妆",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-02-b",
+    "style": "自然裸妆",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-03-a",
+    "style": "日系氧气",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-03-b",
+    "style": "日系氧气",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-04-a",
+    "style": "奶油杏桃",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-04-b",
+    "style": "奶油杏桃",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-05-a",
+    "style": "通勤知性",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-05-b",
+    "style": "通勤知性",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-06-a",
+    "style": "柔雾哑光",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-06-b",
+    "style": "柔雾哑光",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-07-a",
+    "style": "法式复古",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-07-b",
+    "style": "法式复古",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-08-a",
+    "style": "港风红唇",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-08-b",
+    "style": "港风红唇",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-09-a",
+    "style": "冷感御姐",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-09-b",
+    "style": "冷感御姐",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-10-a",
+    "style": "甜酷烟熏",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-10-b",
+    "style": "甜酷烟熏",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-11-a",
+    "style": "美拉德",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-11-b",
+    "style": "美拉德",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-12-a",
+    "style": "日落橘调",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-12-b",
+    "style": "日落橘调",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-13-a",
+    "style": "新娘柔光",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-13-b",
+    "style": "新娘柔光",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-14-a",
+    "style": "中式新娘",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-14-b",
+    "style": "中式新娘",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-15-a",
+    "style": "舞台晚宴",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-15-b",
+    "style": "舞台晚宴",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-16-a",
+    "style": "轻熟职场",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-16-b",
+    "style": "轻熟职场",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-17-a",
+    "style": "海边度假",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-17-b",
+    "style": "海边度假",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-18-a",
+    "style": "胶片写真",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-18-b",
+    "style": "胶片写真",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-19-a",
+    "style": "时尚大片",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-19-b",
+    "style": "时尚大片",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-20-a",
+    "style": "创意彩妆",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-20-b",
+    "style": "创意彩妆",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-21-a",
+    "style": "珠光人鱼",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-21-b",
+    "style": "珠光人鱼",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-22-a",
+    "style": "金属未来",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-22-b",
+    "style": "金属未来",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-23-a",
+    "style": "国风东方",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-23-b",
+    "style": "国风东方",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-24-a",
+    "style": "Y2K辣妹",
+    "width": 1086,
+    "height": 1448
+  },
+  {
+    "id": "sample-ai-24-b",
+    "style": "Y2K辣妹",
+    "width": 1086,
+    "height": 1448
+  }
+]

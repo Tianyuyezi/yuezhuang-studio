@@ -15,11 +15,11 @@ export async function generateImages() {
     return job
   } finally { useBackend.setState((s) => ({ pendingSubmissions: s.pendingSubmissions - 1 })) }
 }
-export async function generateCaptions(groupId: string, languages: Language[]) {
+export async function generateCaptions(groupId: string, languages: Language[], assetIds?: string[]) {
   useBackend.setState((s) => ({ pendingSubmissions: s.pendingSubmissions + 1 }))
   try {
     await flushWorkspace()
-    const job = await api.captions(groupId, languages)
+    const job = await api.captions(groupId, languages, assetIds)
     useBackend.setState((s) => ({ jobs: [job, ...s.jobs.filter((j) => j.id !== job.id)] }))
     return job
   } finally { useBackend.setState((s) => ({ pendingSubmissions: s.pendingSubmissions - 1 })) }

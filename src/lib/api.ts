@@ -37,5 +37,5 @@ export const api = {
   provider: () => request<ProviderStatus>('/provider'),
   jobs: () => request<AIJob[]>('/jobs'),
   image: (projectId: string | null, draft: WorkspaceData['draft']) => request<AIJob>('/jobs/images', { method: 'POST', body: JSON.stringify({ requestId: crypto.randomUUID(), projectId, draft }) }),
-  captions: (groupId: string, languages: string[]) => request<AIJob>('/jobs/captions', { method: 'POST', body: JSON.stringify({ requestId: crypto.randomUUID(), groupId, languages }) }),
+  captions: (groupId: string, languages: string[], assetIds?: string[]) => request<AIJob>('/jobs/captions', { method: 'POST', body: JSON.stringify({ requestId: crypto.randomUUID(), groupId, languages, ...(assetIds ? { assetIds } : {}) }) }),
 }

@@ -1,6 +1,7 @@
 import type { WorkspaceData } from '../shared/contracts'
 import type { Asset } from './types'
 import { groupIdOf } from './groups'
+import { SAMPLE_ASSET_IDS } from '../shared/examples'
 
 function same(a: unknown, b: unknown) { return JSON.stringify(a) === JSON.stringify(b) }
 function object(value: unknown): value is Record<string, unknown> { return value !== null && typeof value === 'object' && !Array.isArray(value) }
@@ -30,7 +31,7 @@ export function mergeThreeWay(base: unknown, local: unknown, remote: unknown): u
 
 /** Remove references to records deleted by another window before saving a merge. */
 export function reconcileWorkspace(state: WorkspaceData, assets: Asset[]): WorkspaceData {
-  const assetIds = new Set([...assets.map((a) => a.id), ...Array.from({ length: 6 }, (_, i) => `sample-0${i + 1}`)])
+  const assetIds = new Set([...assets.map((a) => a.id), ...SAMPLE_ASSET_IDS])
   const models = state.customModels.filter((m) => assetIds.has(m.assetId))
   const modelIds = new Set([...models.map((m) => m.id), 'model-01', 'model-02', 'model-03'])
   const cleanDraft = (draft: WorkspaceData['draft']) => ({ ...draft, referenceId: draft.referenceId && assetIds.has(draft.referenceId) ? draft.referenceId : null, modelId: draft.modelId && modelIds.has(draft.modelId) ? draft.modelId : null })
@@ -42,7 +43,8 @@ export function reconcileWorkspace(state: WorkspaceData, assets: Asset[]): Works
     projects: state.projects.map((p) => ({ ...p, draft: cleanDraft(p.draft), coverId: p.coverId && assetIds.has(p.coverId) ? p.coverId : null })),
     captions: Object.fromEntries(Object.entries(state.captions).filter(([id]) => projectIds.has(id))),
     groupCaptions: Object.fromEntries(Object.entries(state.groupCaptions).filter(([id]) => groupIds.has(id))),
-    publishDrafts: state.publishDrafts.filter((p) => projectIds.has(p.projectId)),
+    publishDrafts: state.publishDrafts.filter((p) => p.groupId ? groupIds.has(p.groupId) : !!p.projectId && projectIds.has(p.projectId)).map((p) => ({ ...p, projectId: p.projectId && projectIds.has(p.projectId) ? p.projectId : null, ...(p.assetIds ? { assetIds: p.assetIds.filter((id) => assetIds.has(id)) } : {}) })).filter((p) => !p.groupId || !!p.assetIds?.length),
+    workflow: { ...state.workflow, assetIds: state.workflow.assetIds?.filter((id) => assetIds.has(id)) ?? null, publishDraftId: state.workflow.publishDraftId && state.publishDrafts.some((p) => p.id === state.workflow.publishDraftId) ? state.workflow.publishDraftId : null },
     favorites: state.favorites.filter((id) => assetIds.has(id)),
   }
 }

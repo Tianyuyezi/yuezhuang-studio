@@ -7,6 +7,7 @@ import { StudioDatabase } from '../database/client'
 import { assetTable } from '../database/schema'
 import { AppError } from '../errors'
 import type { Asset } from '../../src/lib/types'
+import { isExampleId } from '../../src/shared/examples'
 
 export class AssetService {
   constructor(private database: StudioDatabase, private publicDir: string) {}
@@ -58,7 +59,11 @@ export class AssetService {
     return { path: this.path(thumbnail ? row.thumbnailPath : row.originalPath), mime: thumbnail ? 'image/jpeg' : row.mimeType }
   }
   async input(id: string, maxEdge = 1800) {
-    if (/^sample-0[1-6]$/.test(id)) return { bytes: await readFile(join(this.publicDir, 'images', `portrait-${id.slice(-2)}.jpg`)), mime: 'image/jpeg' }
+    if (isExampleId(id)) {
+      const path = id.startsWith('sample-ai-') ? join(this.publicDir, 'images', 'examples', `${id}.png`) : join(this.publicDir, 'images', `portrait-${id.slice(-2)}.jpg`)
+      const bytes = await sharp(await readFile(path), { limitInputPixels: 60_000_000 }).rotate().resize({ width: maxEdge, height: maxEdge, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: maxEdge <= 1024 ? 85 : 94 }).toBuffer()
+      return { bytes, mime: 'image/jpeg' }
+    }
     const file = this.file(id)
     const bytes = await sharp(await readFile(file.path), { limitInputPixels: 60_000_000 }).rotate().resize({ width: maxEdge, height: maxEdge, fit: 'inside', withoutEnlargement: true }).jpeg({ quality: maxEdge <= 1024 ? 85 : 94 }).toBuffer()
     return { bytes, mime: 'image/jpeg' }
@@ -71,7 +76,7 @@ export class AssetService {
       const snapshot = this.database.mutateWorkspace((s) => {
         const deletedModels = new Set(s.customModels.filter((m) => m.assetId === id).map((m) => m.id))
         const cleanDraft = (draft: typeof s.draft) => ({ ...draft, referenceId: draft.referenceId === id ? null : draft.referenceId, modelId: draft.modelId && deletedModels.has(draft.modelId) ? null : draft.modelId })
-        return { ...s, favorites: s.favorites.filter((v) => v !== id), customModels: s.customModels.filter((m) => m.assetId !== id), draft: cleanDraft(s.draft), projects: s.projects.map((p) => ({ ...p, coverId: p.coverId === id ? null : p.coverId, draft: cleanDraft(p.draft) })) }
+        return { ...s, favorites: s.favorites.filter((v) => v !== id), customModels: s.customModels.filter((m) => m.assetId !== id), draft: cleanDraft(s.draft), projects: s.projects.map((p) => ({ ...p, coverId: p.coverId === id ? null : p.coverId, draft: cleanDraft(p.draft) })), publishDrafts: s.publishDrafts.flatMap((p) => { if (!p.assetIds?.includes(id)) return [p]; const assetIds = p.assetIds.filter((assetId) => assetId !== id); return assetIds.length ? [{ ...p, assetIds }] : [] }), workflow: { ...s.workflow, assetIds: s.workflow.assetIds?.filter((assetId) => assetId !== id) ?? null } }
       })
       this.database.audit('asset.delete', id)
       return snapshot

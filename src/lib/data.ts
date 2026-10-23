@@ -1,8 +1,9 @@
-import type { Asset, CaptionSet, CreationDraft, ModelProfile } from './types'
+import type { Asset, CaptionSet, CreationDraft, ModelProfile, WorkflowState } from './types'
 
 export { STYLES } from './style-presets'
 import { STYLE_RECIPES } from './style-presets'
 import { photographicDescription } from '../shared/photography'
+import referenceExamples from './reference-examples.json'
 
 export const SAMPLE_ASSETS: Asset[] = [
   { id: 'sample-01', title: '清透底妆参考', src: '/images/portrait-01.jpg', style: '韩系清透', kind: 'example', createdAt: 0 },
@@ -11,6 +12,7 @@ export const SAMPLE_ASSETS: Asset[] = [
   { id: 'sample-04', title: '日常妆容参考', src: '/images/portrait-04.jpg', style: '时尚大片', kind: 'example', createdAt: 0 },
   { id: 'sample-05', title: '暖色人像参考', src: '/images/portrait-05.jpg', style: '自然裸妆', kind: 'example', createdAt: 0 },
   { id: 'sample-06', title: '自然肌理参考', src: '/images/portrait-06.jpg', style: '创意彩妆', kind: 'example', createdAt: 0 },
+  ...referenceExamples.map((example) => ({ ...example, title: `${example.style} · ${example.id.endsWith('-a') ? '自然光近景' : '侧颜妆面'}`, kind: 'example' as const, exampleOrigin: 'generated' as const, src: `/images/examples/${example.id}.png`, thumbnailSrc: `/images/examples/${example.id}-thumb.jpg`, createdAt: 0 })),
 ]
 
 export const SAMPLE_MODELS: ModelProfile[] = [
@@ -22,6 +24,7 @@ export const SAMPLE_MODELS: ModelProfile[] = [
 export const INITIAL_DRAFT: CreationDraft = {
   mode: 'virtual', prompt: '', style: '韩系清透', modelId: null, ratio: '3:4', count: 4, referenceId: null, imageModel: null,
 }
+export const INITIAL_WORKFLOW: WorkflowState = { step: 1, jobId: null, groupId: null, assetIds: null, language: 'zh', publishDraftId: null, scheduledAt: null }
 
 const STYLE_PROMPT_DETAILS: Record<string, string> = {
   ...Object.fromEntries(Object.entries(STYLE_RECIPES).map(([style, recipe]) => [style, `一位虚构的成年人物，${style}。${recipe.detail}，以${recipe.palettes[0]}为配色。妆造协调，突出真实肌肤质感与妆容细节。`])),

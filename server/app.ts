@@ -18,6 +18,7 @@ import { PromptService } from './services/prompts'
 import { promptFeedbackSchema, promptTemplateInputSchema } from '../src/shared/prompts'
 import { QualityService } from './services/quality'
 import { qualityPreferencesSchema, referenceInputSchema } from '../src/shared/quality'
+import { publicationPackage } from './services/publication'
 
 export function createStudioApp(options: { dataDir: string; publicDir: string; distDir?: string; keys?: Keychain; ai?: AIProvider }) {
   const database = new StudioDatabase(options.dataDir)
@@ -74,6 +75,7 @@ export function createStudioApp(options: { dataDir: string; publicDir: string; d
   app.get('/api/workspace', (_req, res) => res.json(database.snapshot()))
   app.put('/api/workspace', (req, res) => {
     const input = z.object({ revision: z.number().int().nonnegative(), state: workspaceSchema }).parse(req.body)
+    if (req.body.state && !Object.hasOwn(req.body.state, 'workflow')) input.state.workflow = database.snapshot().state.workflow
     res.json(database.saveWorkspace(input.revision, input.state))
   })
   app.get('/api/assets', (_req, res) => res.json(assets ? database.assets() : []))
@@ -87,6 +89,12 @@ export function createStudioApp(options: { dataDir: string; publicDir: string; d
   })
   app.delete('/api/assets/:id', (req, res) => res.json(assets.remove(z.uuid().parse(req.params.id))))
   app.get('/api/provider', async (_req, res) => res.json(await provider.status()))
+  app.get('/api/publish-drafts/:id/package', async (req, res) => {
+    const bytes = await publicationPackage(database, assets, z.uuid().parse(req.params.id))
+    res.setHeader('Content-Type', 'application/zip')
+    res.setHeader('Content-Disposition', 'attachment; filename="publication.zip"')
+    res.send(bytes)
+  })
   app.put('/api/provider', async (req, res) => {
     const input = providerSchema.extend({ apiKey: z.string().min(10).max(512).optional() }).parse(req.body)
     res.json(await provider.configure(input, input.apiKey))

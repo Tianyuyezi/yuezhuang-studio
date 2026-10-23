@@ -1,0 +1,9 @@
+{
+  "id": "sample-ai-12-a",
+  "style": "日落橘调",
+  "width": 1086,
+  "height": 1448,
+  "source": "imagegen built-in",
+  "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 日落橘调. Required defining makeup details: 温暖眼影渐层、明亮颊色与日落光泽. Makeup palette: 夕阳橘与珊瑚. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+  "createdAt": 1792740222842
+}

@@ -1,10 +1,13 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { emptyCaptions, INITIAL_DRAFT } from '../lib/data'
-import type { Asset, Caption, CaptionSet, CreationDraft, Language, ModelProfile, PageId, Project, PublishDraft, Settings, WorkGroup } from '../lib/types'
+import { emptyCaptions, INITIAL_DRAFT, INITIAL_WORKFLOW } from '../lib/data'
+import type { Asset, Caption, CaptionSet, CreationDraft, Language, ModelProfile, PageId, Project, PublishDraft, Settings, WorkGroup, WorkflowState } from '../lib/types'
 
 interface Workspace {
   page: PageId
+  workflow: WorkflowState
+  updateWorkflow: (data: Partial<WorkflowState>) => void
+  startWorkflow: (groupId?: string) => void
   draft: CreationDraft
   projects: Project[]
   activeProjectId: string | null
@@ -55,7 +58,9 @@ const guardedStorage: Storage = {
 }
 
 export const useWorkspace = create<Workspace>()(persist((set, get) => ({
-  page: 'studio', draft: { ...INITIAL_DRAFT }, projects: [], activeProjectId: null,
+  page: 'studio', workflow: { ...INITIAL_WORKFLOW }, draft: { ...INITIAL_DRAFT }, projects: [], activeProjectId: null,
+  updateWorkflow: (data) => set((state) => ({ workflow: { ...state.workflow, ...data } })),
+  startWorkflow: (groupId) => set((state) => ({ page: 'workflow', workflow: { ...INITIAL_WORKFLOW, language: state.settings.language, ...(groupId ? { step: 2 as const, groupId } : {}) } })),
   importedAssets: [], hiddenExamples: [], favorites: [], customModels: [], captions: {}, workGroups: [], groupCaptions: {}, copyGroupId: null, publishDrafts: [],
   settings: { studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' },
   promptHistoryId: null,
@@ -114,7 +119,7 @@ export const useWorkspace = create<Workspace>()(persist((set, get) => ({
     const captions = Object.fromEntries((['zh', 'en', 'ko'] as const).map((lang) => [lang, previous[lang].locked ? previous[lang] : { ...example[lang] }])) as unknown as CaptionSet
     return { captions: { ...state.captions, [projectId]: captions } }
   }),
-  addPublishDraft: (draft) => set((state) => ({ publishDrafts: [draft, ...state.publishDrafts] })),
+  addPublishDraft: (draft) => set((state) => ({ publishDrafts: [draft, ...state.publishDrafts.filter((p) => p.id !== draft.id)] })),
   removePublishDraft: (id) => set((state) => ({ publishDrafts: state.publishDrafts.filter((d) => d.id !== id) })),
   updateSettings: (settings) => set((state) => ({ settings: { ...state.settings, ...settings } })),
 }), { name: 'yuezhuang-workspace-v1', version: 1, storage: createJSONStorage(() => guardedStorage) }))

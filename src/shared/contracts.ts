@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const idSchema = z.string().regex(/^(?:[0-9a-f-]{36}|sample-0[1-6]|model-0[1-3])$/i)
+export const idSchema = z.string().regex(/^(?:[0-9a-f-]{36}|sample-0[1-6]|sample-ai-(?:0[1-9]|1[0-9]|2[0-4])-[ab]|model-0[1-3])$/i)
 export const languageSchema = z.enum(['zh', 'en', 'ko'])
 export const draftSchema = z.object({
   mode: z.enum(['virtual', 'edit']), prompt: z.string().max(4000), style: z.string().max(80),
@@ -21,13 +21,20 @@ export const projectSchema = z.object({
 })
 export const modelSchema = z.object({ id: z.uuid(), name: z.string().trim().min(1).max(30), description: z.string().max(500), assetId: idSchema, tags: z.array(z.string().max(50)).max(20), example: z.literal(false), originJobId: z.uuid().optional() })
 export const publishDraftSchema = z.object({
-  id: z.uuid(), projectId: z.uuid(), title: z.string().max(60), scheduledAt: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/),
+  id: z.uuid(), projectId: z.uuid().nullable(), groupId: z.uuid().nullable().optional(), assetIds: z.array(idSchema).min(1).max(20).optional(), title: z.string().max(60), scheduledAt: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/),
   timezone: settingsSchema.shape.timezone, language: languageSchema, caption: z.string().max(7000), createdAt: z.number().int().nonnegative(),
 })
+export const workflowSchema = z.object({
+  step: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).default(1),
+  jobId: z.uuid().nullable().default(null), groupId: z.uuid().nullable().default(null),
+  assetIds: z.array(idSchema).max(20).nullable().default(null), language: languageSchema.default('zh'), publishDraftId: z.uuid().nullable().default(null),
+  scheduledAt: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/).nullable().default(null),
+})
 export const workspaceSchema = z.object({
-  page: z.enum(['studio', 'projects', 'assets', 'models', 'prompts', 'copywriting', 'publishing', 'settings']),
+  page: z.enum(['workflow', 'studio', 'projects', 'assets', 'models', 'prompts', 'copywriting', 'publishing', 'settings']),
+  workflow: workflowSchema.default(() => workflowSchema.parse({})),
   draft: draftSchema, projects: z.array(projectSchema).max(5000), activeProjectId: z.uuid().nullable(),
-  hiddenExamples: z.array(idSchema).max(6), favorites: z.array(idSchema).max(20000), customModels: z.array(modelSchema).max(2000),
+  hiddenExamples: z.array(idSchema).max(1000), favorites: z.array(idSchema).max(20000), customModels: z.array(modelSchema).max(2000),
   captions: z.record(z.uuid(), captionSetSchema), groupCaptions: z.record(z.uuid(), captionSetSchema).default({}), publishDrafts: z.array(publishDraftSchema).max(10000), settings: settingsSchema,
 })
 export type WorkspaceData = z.infer<typeof workspaceSchema>
@@ -46,5 +53,5 @@ export interface AIJob {
   resultModelId?: string;
 }
 export const imageJobInputSchema = z.object({ requestId: z.uuid(), projectId: z.uuid().nullable(), draft: draftSchema })
-export const captionJobInputSchema = z.object({ requestId: z.uuid(), projectId: z.uuid().optional(), groupId: z.uuid().optional(), languages: z.array(languageSchema).min(1).max(3) }).refine((s) => !!(s.groupId || s.projectId), '请选择作品组')
+export const captionJobInputSchema = z.object({ requestId: z.uuid(), projectId: z.uuid().optional(), groupId: z.uuid().optional(), assetIds: z.array(idSchema).min(1).max(20).optional(), languages: z.array(languageSchema).min(1).max(3) }).refine((s) => !!(s.groupId || s.projectId), '请选择作品组').refine((s) => !s.assetIds || !!s.groupId, '选图文案需要作品组')
 export const promptInputSchema = z.object({ action: z.enum(['random', 'polish']), draft: draftSchema, variation: z.string().max(1000).optional() })

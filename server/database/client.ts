@@ -7,12 +7,13 @@ import { randomUUID } from 'node:crypto'
 import * as schema from './schema'
 import { draftSchema, workspaceSchema } from '../../src/shared/contracts'
 import type { WorkspaceData, AIJob } from '../../src/shared/contracts'
-import { INITIAL_DRAFT } from '../../src/lib/data'
+import { INITIAL_DRAFT, INITIAL_WORKFLOW } from '../../src/lib/data'
+import { SAMPLE_ASSET_IDS } from '../../src/shared/examples'
 import { AppError } from '../errors'
 import { buildWorkGroups } from '../../src/lib/groups'
 
 export function initialWorkspace(): WorkspaceData {
-  return { page: 'studio', draft: draftSchema.parse(INITIAL_DRAFT), projects: [], activeProjectId: null, hiddenExamples: [], favorites: [], customModels: [], captions: {}, groupCaptions: {}, publishDrafts: [], settings: { studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' } }
+  return { page: 'studio', workflow: { ...INITIAL_WORKFLOW }, draft: draftSchema.parse(INITIAL_DRAFT), projects: [], activeProjectId: null, hiddenExamples: [], favorites: [], customModels: [], captions: {}, groupCaptions: {}, publishDrafts: [], settings: { studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' } }
 }
 
 export class StudioDatabase {
@@ -118,11 +119,18 @@ export class StudioDatabase {
   validateReferences(state: WorkspaceData) {
     const projectIds = new Set(state.projects.map((p) => p.id))
     if (projectIds.size !== state.projects.length) throw new AppError('VALIDATION', '项目 ID 重复。')
+    if (new Set(state.publishDrafts.map((p) => p.id)).size !== state.publishDrafts.length) throw new AppError('VALIDATION', '发布草稿 ID 重复。')
     if (state.activeProjectId && !projectIds.has(state.activeProjectId)) throw new AppError('VALIDATION', '当前项目不存在。')
-    if (Object.keys(state.captions).some((id) => !projectIds.has(id)) || state.publishDrafts.some((p) => !projectIds.has(p.projectId))) throw new AppError('VALIDATION', '文案或排期关联的项目不存在。')
+    if (Object.keys(state.captions).some((id) => !projectIds.has(id)) || state.publishDrafts.some((p) => p.projectId !== null && !projectIds.has(p.projectId))) throw new AppError('VALIDATION', '文案或排期关联的项目不存在。')
     const groupIds = new Set(this.groups(state).map((g) => g.id))
     if (Object.keys(state.groupCaptions).some((id) => !groupIds.has(id))) throw new AppError('GROUP_NOT_FOUND', '作品组不存在。')
-    const assetIds = new Set([...this.assets().map((a) => a.id), ...Array.from({ length: 6 }, (_, i) => `sample-0${i + 1}`)])
+    for (const plan of state.publishDrafts) {
+      const group = plan.groupId ? this.groups(state).find((g) => g.id === plan.groupId) : null
+      if (group && plan.projectId && group.projectId !== plan.projectId) throw new AppError('PUBLISH_ASSETS_INVALID', '作品组与发布项目不匹配。')
+      if (!plan.projectId && !group) throw new AppError('GROUP_NOT_FOUND', '发布草稿需要关联作品组或项目。')
+      if (plan.groupId && (!group || plan.assetIds?.some((id) => !group.assetIds.includes(id)) || !plan.assetIds?.length || new Set(plan.assetIds).size !== plan.assetIds.length)) throw new AppError('PUBLISH_ASSETS_INVALID', '发布图片需要来自同一个作品组，且不能重复。')
+    }
+    const assetIds = new Set([...this.assets().map((a) => a.id), ...SAMPLE_ASSET_IDS])
     const references = [...state.customModels.map((m) => m.assetId), ...state.projects.flatMap((p) => [p.coverId, p.draft.referenceId]), state.draft.referenceId].filter(Boolean)
     if (references.some((id) => !assetIds.has(id!))) throw new AppError('ASSET_NOT_FOUND', '部分参考图片尚未上传或已经删除，请重新选择。')
   }

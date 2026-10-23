@@ -571,4 +571,68 @@ describe('local backend integration (isolated test database; no live requests)',
     expect(updated.scores).toEqual(EMPTY_SCORES)
     expect(runtime.quality.context({ ...initialWorkspace().draft, style: '舞台晚宴' }).sources).toEqual([])
   })
+  it('sends only workflow-selected photos to caption generation and rejects other-group selections', async () => {
+    const group = await imageBatch(null, 2)
+    const foreign = await upload()
+    const submit = (assetIds: string[]) => call('/api/jobs/captions', { method: 'POST', body: JSON.stringify({ requestId: randomUUID(), groupId: group.id, assetIds, languages: ['zh', 'en', 'ko'] }) })
+    expect((await submit([foreign.id])).status).toBe(400)
+    expect((await submit([group.resultAssetIds[0], group.resultAssetIds[0]])).status).toBe(400)
+    const response = await submit([group.resultAssetIds[1]])
+    expect(response.status).toBe(202)
+    const done = await waitJob((await response.json()).id)
+    expect(done.status).toBe('succeeded')
+    expect(fake.captionReferences).toEqual([1, 1, 1])
+    expect(runtime.database.job(done.id)!.input.sourceAssetIds).toEqual([group.resultAssetIds[1]])
+    expect(runtime.database.snapshot().state.groupCaptions[group.id].en.body).toContain('AI virtual')
+  })
+  it('persists all four workflow steps and protects progress from older browser saves', async () => {
+    const group = await imageBatch(null, 2)
+    const current = runtime.database.snapshot()
+    const workflow = { ...current.state.workflow, step: 3, jobId: group.id, groupId: group.id, assetIds: [group.resultAssetIds[1]], language: 'ko' }
+    expect((await call('/api/workspace', { method: 'PUT', body: JSON.stringify({ revision: current.revision, state: { ...current.state, page: 'workflow', workflow } }) })).status).toBe(200)
+    const saved = await (await call('/api/workspace')).json()
+    expect(saved.state.workflow).toEqual(workflow)
+    const { workflow: _workflow, ...oldBrowserState } = saved.state
+    expect((await call('/api/workspace', { method: 'PUT', body: JSON.stringify({ revision: saved.revision, state: oldBrowserState }) })).status).toBe(200)
+    expect(runtime.database.snapshot().state.workflow).toEqual(workflow)
+  })
+  it('exports the ordered original files and saved caption snapshot for a project-free workflow draft', async () => {
+    const groupId = randomUUID()
+    const first = await runtime.assets.save(bytes, '第一张', { groupId })
+    const otherBytes = await sharp({ create: { width: 45, height: 65, channels: 3, background: '#754c42' } }).jpeg().toBuffer()
+    const second = await runtime.assets.save(otherBytes, '第二张', { groupId })
+    const plan = { id: randomUUID(), projectId: null, groupId, assetIds: [second.id, first.id], title: '发布快照', scheduledAt: '2026-11-01T18:00', timezone: 'Asia/Shanghai', language: 'en', caption: 'Saved English caption\n\n#Makeup', createdAt: Date.now() }
+    const snapshot = runtime.database.snapshot()
+    const response = await call('/api/workspace', { method: 'PUT', body: JSON.stringify({ revision: snapshot.revision, state: { ...snapshot.state, publishDrafts: [plan] } }) })
+    expect(response.status).toBe(200)
+    const { emptyCaptions } = await import('../src/lib/data')
+    runtime.database.mutateWorkspace((s) => ({ ...s, groupCaptions: { [groupId]: { ...emptyCaptions(), en: { title: 'New text', body: 'Later changes', hashtags: '', locked: false } } } }))
+    const exported = await call(`/api/publish-drafts/${plan.id}/package`)
+    expect(exported.status).toBe(200)
+    expect(exported.headers.get('content-type')).toContain('application/zip')
+    const archive = Buffer.from(await exported.arrayBuffer()), entries = new Map<string, Buffer>()
+    let offset = 0
+    while (archive.readUInt32LE(offset) === 0x04034b50) {
+      const size = archive.readUInt32LE(offset + 18), nameLength = archive.readUInt16LE(offset + 26), extraLength = archive.readUInt16LE(offset + 28)
+      const name = archive.subarray(offset + 30, offset + 30 + nameLength).toString('utf8'), start = offset + 30 + nameLength + extraLength
+      entries.set(name, archive.subarray(start, start + size)); offset = start + size
+    }
+    expect(entries.get('01-cover.jpg')).toEqual(otherBytes)
+    expect(entries.get('02-photo.jpg')).toEqual(bytes)
+    expect(entries.get('caption.txt')!.toString('utf8')).toBe(plan.caption)
+    expect(JSON.parse(entries.get('publication.json')!.toString('utf8'))).toMatchObject({ assetIds: [second.id, first.id], instagramPublished: false, status: 'local_draft' })
+    expect((await call('/api/workspace', { method: 'PUT', body: JSON.stringify({ revision: runtime.database.snapshot().revision, state: { ...runtime.database.snapshot().state, publishDrafts: [{ ...plan, assetIds: [randomUUID()] }] } }) })).status).toBe(400)
+    await call(`/api/assets/${second.id}`, { method: 'DELETE' })
+    expect(runtime.database.snapshot().state.publishDrafts[0].assetIds).toEqual([first.id])
+    await call(`/api/assets/${first.id}`, { method: 'DELETE' })
+    expect(runtime.database.snapshot().state.publishDrafts).toHaveLength(0)
+    expect((await call(`/api/publish-drafts/${plan.id}/package`)).status).toBe(404)
+  })
+  it('uses new AI reference images as actual image inputs and retains their saved prompt source', async () => {
+    const input = await runtime.assets.input('sample-ai-20-b', 1024)
+    expect(input.bytes.length).toBeGreaterThan(10000)
+    expect((await sharp(input.bytes).metadata()).width).toBeLessThanOrEqual(1024)
+    const snapshot = runtime.database.snapshot()
+    expect((await call('/api/workspace', { method: 'PUT', body: JSON.stringify({ revision: snapshot.revision, state: { ...snapshot.state, hiddenExamples: ['sample-ai-20-b'], favorites: ['sample-ai-01-a'], draft: { ...snapshot.state.draft, referenceId: 'sample-ai-20-b' } } }) })).status).toBe(200)
+  })
 })

@@ -1,4 +1,4 @@
-export type PageId = 'studio' | 'projects' | 'assets' | 'models' | 'prompts' | 'copywriting' | 'publishing' | 'settings'
+export type PageId = 'workflow' | 'studio' | 'projects' | 'assets' | 'models' | 'prompts' | 'copywriting' | 'publishing' | 'settings'
 export type Language = 'zh' | 'en' | 'ko'
 export type CreationMode = 'virtual' | 'edit'
 
@@ -15,6 +15,8 @@ export interface Asset {
   projectId?: string | null
   jobId?: string
   groupId?: string
+  exampleOrigin?: 'photography' | 'generated'
+  examplePrompt?: string
 }
 
 export interface WorkGroup {
@@ -70,13 +72,25 @@ export type CaptionSet = Record<Language, Caption>
 
 export interface PublishDraft {
   id: string
-  projectId: string
+  projectId: string | null
+  groupId?: string | null
+  assetIds?: string[]
   title: string
   scheduledAt: string
   timezone: string
   language: Language
   caption: string
   createdAt: number
+}
+
+export interface WorkflowState {
+  step: 1 | 2 | 3 | 4
+  jobId: string | null
+  groupId: string | null
+  assetIds: string[] | null
+  language: Language
+  publishDraftId: string | null
+  scheduledAt: string | null
 }
 
 export interface Settings {

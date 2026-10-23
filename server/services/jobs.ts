@@ -38,7 +38,9 @@ export class JobService {
     const captionInput = kind === 'caption' ? captionJobInputSchema.parse(input) : null
     const group = captionInput?.groupId ? this.database.groups().find((g) => g.id === captionInput.groupId) : null
     if (captionInput?.groupId && !group) throw new AppError('GROUP_NOT_FOUND', '请选择作品库中已有图片的作品组。', 404)
-    if (group && group.assetIds.length > 20) throw new AppError('GROUP_TOO_LARGE', '单组文案暂支持最多 20 张图片。')
+    const captionAssets = captionInput?.assetIds ?? group?.assetIds ?? []
+    if (captionInput?.assetIds && (!group || captionAssets.some((id) => !group.assetIds.includes(id)) || new Set(captionAssets).size !== captionAssets.length)) throw new AppError('GROUP_ASSETS_INVALID', '请选择当前作品组内不重复的图片。')
+    if (captionAssets.length > 20) throw new AppError('GROUP_TOO_LARGE', '单组文案暂支持最多 20 张图片。')
     if (input.projectId && !workspace.projects.some((p) => p.id === input.projectId)) throw new AppError('PROJECT_NOT_FOUND', '请先保存妆容项目。', 404)
     if (kind === 'image') {
       const data = imageJobInputSchema.parse(input)
@@ -52,7 +54,7 @@ export class JobService {
     job.projectId = input.projectId ?? group?.projectId ?? null
     job.groupId = kind === 'image' ? job.id : captionInput?.groupId ?? null
     const guidance = kind === 'image' ? this.quality.context(imageJobInputSchema.parse(input).draft) : undefined
-    const preparedInput = { ...input, providerConfig, ...(guidance ? { guidance } : {}), ...(kind === 'caption' ? { baseline: group ? workspace.groupCaptions[group.id] ?? emptyCaptions() : workspace.captions[input.projectId!] ?? emptyCaptions(), sourceAssetIds: group?.assetIds ?? [] } : {}) }
+    const preparedInput = { ...input, providerConfig, ...(guidance ? { guidance } : {}), ...(kind === 'caption' ? { baseline: group ? workspace.groupCaptions[group.id] ?? emptyCaptions() : workspace.captions[input.projectId!] ?? emptyCaptions(), sourceAssetIds: captionAssets } : {}) }
     this.database.sqlite.transaction(() => {
       this.database.db.insert(jobTable).values({ id: job.id, requestId: input.requestId, payload: job, input: preparedInput }).run()
       if (kind === 'image') this.prompts.record(job, imageJobInputSchema.parse(input).draft, guidance)

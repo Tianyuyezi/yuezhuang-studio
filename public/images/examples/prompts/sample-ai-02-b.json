@@ -1,0 +1,9 @@
+{
+  "id": "sample-ai-02-b",
+  "style": "自然裸妆",
+  "width": 1086,
+  "height": 1448,
+  "source": "imagegen built-in",
+  "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 自然裸妆. Required defining makeup details: 保留真实肌理，弱化修饰痕迹与干净的眉睫. Makeup palette: 蜜桃与裸米. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+  "createdAt": 1792739816195
+}

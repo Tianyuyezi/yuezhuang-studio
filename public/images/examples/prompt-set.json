@@ -1,0 +1,437 @@
+{
+  "source": "imagegen built-in",
+  "records": [
+    {
+      "id": "sample-ai-01-a",
+      "style": "韩系清透",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: makeup reference photograph for a professional makeup artist's local desktop application. Make ONE standalone vertical 3:4 beauty portrait, not a collage. Subject: one fictional adult woman aged 27 with an individual believable face, dark loose hair and a simple ivory blouse. Makeup style: Korean sheer makeup 韩系清透: sheer breathable base, delicate natural brows, individually separated lashes, pale apricot pink eyeshadow, low-saturation rose-nude lips, restrained healthy glow. Head and shoulders, gentle three-quarter angle and relaxed expression, directional soft window light in an actual pale warm interior. It must look like an authentic camera photograph with subtle skin pores, tiny tonal variation, natural lip lines, flyaway hairs, realistic fabric and soft falloff. Professional makeup, believable human proportions, no doll face, plastic skin, CGI, illustration, oversharpening, text, watermarks, borders or UI.",
+      "createdAt": 1792739592558
+    },
+    {
+      "id": "sample-ai-01-b",
+      "style": "韩系清透",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 韩系清透. Required defining makeup details: 轻盈通透底妆、自然眉形与细密睫毛. Makeup palette: 低饱和玫瑰与灰棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739676373
+    },
+    {
+      "id": "sample-ai-02-a",
+      "style": "自然裸妆",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 自然裸妆. Required defining makeup details: 保留真实肌理，弱化修饰痕迹与干净的眉睫. Makeup palette: 浅棕与豆沙. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739729101
+    },
+    {
+      "id": "sample-ai-02-b",
+      "style": "自然裸妆",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 自然裸妆. Required defining makeup details: 保留真实肌理，弱化修饰痕迹与干净的眉睫. Makeup palette: 蜜桃与裸米. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739816195
+    },
+    {
+      "id": "sample-ai-03-a",
+      "style": "日系氧气",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 日系氧气. Required defining makeup details: 柔软的色彩过渡，细腻腮红与轻盈睫毛. Makeup palette: 草莓奶粉. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739878223
+    },
+    {
+      "id": "sample-ai-03-b",
+      "style": "日系氧气",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 日系氧气. Required defining makeup details: 柔软的色彩过渡，细腻腮红与轻盈睫毛. Makeup palette: 杏橘与浅棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739702362
+    },
+    {
+      "id": "sample-ai-04-a",
+      "style": "奶油杏桃",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 奶油杏桃. Required defining makeup details: 奶油质感底妆，柔和杏桃色腮红与润泽唇妆. Makeup palette: 杏桃与奶茶. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739729099
+    },
+    {
+      "id": "sample-ai-04-b",
+      "style": "奶油杏桃",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 奶油杏桃. Required defining makeup details: 奶油质感底妆，柔和杏桃色腮红与润泽唇妆. Makeup palette: 浅珊瑚与香草. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739787304
+    },
+    {
+      "id": "sample-ai-05-a",
+      "style": "通勤知性",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 通勤知性. Required defining makeup details: 清晰干净的眉眼、克制的轮廓与低饱和唇色. Makeup palette: 燕麦棕与豆沙. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739816190
+    },
+    {
+      "id": "sample-ai-05-b",
+      "style": "通勤知性",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 通勤知性. Required defining makeup details: 清晰干净的眉眼、克制的轮廓与低饱和唇色. Makeup palette: 暖灰与玫瑰. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739878250
+    },
+    {
+      "id": "sample-ai-06-a",
+      "style": "柔雾哑光",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 柔雾哑光. Required defining makeup details: 细腻柔雾底妆，哑光眼影与柔边唇妆. Makeup palette: 烟粉与灰棕. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739850070
+    },
+    {
+      "id": "sample-ai-06-b",
+      "style": "柔雾哑光",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 柔雾哑光. Required defining makeup details: 细腻柔雾底妆，哑光眼影与柔边唇妆. Makeup palette: 奶茶与裸米. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739878261
+    },
+    {
+      "id": "sample-ai-07-a",
+      "style": "法式复古",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 法式复古. Required defining makeup details: 松弛自然的眉形、精致眼线与复古唇妆. Makeup palette: 玫瑰红与焦糖. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739997139
+    },
+    {
+      "id": "sample-ai-07-b",
+      "style": "法式复古",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 法式复古. Required defining makeup details: 松弛自然的眉形、精致眼线与复古唇妆. Makeup palette: 酒红与柔棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739941361
+    },
+    {
+      "id": "sample-ai-08-a",
+      "style": "港风红唇",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 港风红唇. Required defining makeup details: 松弛的自然卷发、清晰眉眼与饱满红唇，保留唇纹和真实皮肤. Makeup palette: 正红与古铜. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739992453
+    },
+    {
+      "id": "sample-ai-08-b",
+      "style": "港风红唇",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 港风红唇. Required defining makeup details: 松弛的自然卷发、清晰眉眼与饱满红唇，保留唇纹和真实皮肤. Makeup palette: 樱桃红与暖棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740038764
+    },
+    {
+      "id": "sample-ai-09-a",
+      "style": "冷感御姐",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 冷感御姐. Required defining makeup details: 利落眼线、克制轮廓与干净冷调底妆. Makeup palette: 灰紫与冷豆沙. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739966436
+    },
+    {
+      "id": "sample-ai-09-b",
+      "style": "冷感御姐",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 冷感御姐. Required defining makeup details: 利落眼线、克制轮廓与干净冷调底妆. Makeup palette: 石墨与裸玫瑰. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792739992613
+    },
+    {
+      "id": "sample-ai-10-a",
+      "style": "甜酷烟熏",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 甜酷烟熏. Required defining makeup details: 柔边烟熏眼妆，清楚的睫毛与轻盈唇妆. Makeup palette: 烟灰与浅粉. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740110335
+    },
+    {
+      "id": "sample-ai-10-b",
+      "style": "甜酷烟熏",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 甜酷烟熏. Required defining makeup details: 柔边烟熏眼妆，清楚的睫毛与轻盈唇妆. Makeup palette: 可可与玫瑰. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740110333
+    },
+    {
+      "id": "sample-ai-11-a",
+      "style": "美拉德",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 美拉德. Required defining makeup details: 暖棕层次、柔和立体轮廓与秋日唇色. Makeup palette: 焦糖与栗棕. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740150369
+    },
+    {
+      "id": "sample-ai-11-b",
+      "style": "美拉德",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 美拉德. Required defining makeup details: 暖棕层次、柔和立体轮廓与秋日唇色. Makeup palette: 可可与奶茶. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740150366
+    },
+    {
+      "id": "sample-ai-12-a",
+      "style": "日落橘调",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 日落橘调. Required defining makeup details: 温暖眼影渐层、明亮颊色与日落光泽. Makeup palette: 夕阳橘与珊瑚. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740222842
+    },
+    {
+      "id": "sample-ai-12-b",
+      "style": "日落橘调",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 日落橘调. Required defining makeup details: 温暖眼影渐层、明亮颊色与日落光泽. Makeup palette: 杏金与番茄红. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740287350
+    },
+    {
+      "id": "sample-ai-13-a",
+      "style": "新娘柔光",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 新娘柔光. Required defining makeup details: 细腻通透底妆、精致眉睫与柔和珠光. Makeup palette: 香槟与淡粉. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740195355
+    },
+    {
+      "id": "sample-ai-13-b",
+      "style": "新娘柔光",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 新娘柔光. Required defining makeup details: 细腻通透底妆、精致眉睫与柔和珠光. Makeup palette: 杏金与玫瑰. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740223224
+    },
+    {
+      "id": "sample-ai-14-a",
+      "style": "中式新娘",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 中式新娘. Required defining makeup details: 端正精致眉眼、细腻底妆与中式唇妆. Makeup palette: 朱红与香槟金. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740265031
+    },
+    {
+      "id": "sample-ai-14-b",
+      "style": "中式新娘",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 中式新娘. Required defining makeup details: 端正精致眉眼、细腻底妆与中式唇妆. Makeup palette: 胭脂红与浅棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740287344
+    },
+    {
+      "id": "sample-ai-15-a",
+      "style": "舞台晚宴",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 舞台晚宴. Required defining makeup details: 具有层次的眼妆、清晰轮廓与精致高光. Makeup palette: 深棕与金色. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740287336
+    },
+    {
+      "id": "sample-ai-15-b",
+      "style": "舞台晚宴",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 舞台晚宴. Required defining makeup details: 具有层次的眼妆、清晰轮廓与精致高光. Makeup palette: 酒红与香槟. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740326473
+    },
+    {
+      "id": "sample-ai-16-a",
+      "style": "轻熟职场",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 轻熟职场. Required defining makeup details: 清晰眉形、利落眼线与有质感的低饱和唇妆. Makeup palette: 灰棕与玫瑰棕. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740371415
+    },
+    {
+      "id": "sample-ai-16-b",
+      "style": "轻熟职场",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 轻熟职场. Required defining makeup details: 清晰眉形、利落眼线与有质感的低饱和唇妆. Makeup palette: 奶咖与豆沙. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740460930
+    },
+    {
+      "id": "sample-ai-17-a",
+      "style": "海边度假",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 海边度假. Required defining makeup details: 轻薄底妆、自然光泽与温暖颊色. Makeup palette: 珊瑚与古铜. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740456985
+    },
+    {
+      "id": "sample-ai-17-b",
+      "style": "海边度假",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 海边度假. Required defining makeup details: 轻薄底妆、自然光泽与温暖颊色. Makeup palette: 蜜桃与金棕. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740371414
+    },
+    {
+      "id": "sample-ai-18-a",
+      "style": "胶片写真",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 胶片写真. Required defining makeup details: 保留肌肤纹理、柔和妆面与真实的生活感. Makeup palette: 暖棕与复古红. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740460951
+    },
+    {
+      "id": "sample-ai-18-b",
+      "style": "胶片写真",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 胶片写真. Required defining makeup details: 保留肌肤纹理、柔和妆面与真实的生活感. Makeup palette: 烟粉与奶咖. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740524937
+    },
+    {
+      "id": "sample-ai-19-a",
+      "style": "时尚大片",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 时尚大片. Required defining makeup details: 现代美妆摄影，突出妆面结构和光影设计. Makeup palette: 黑灰与裸色. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740524937
+    },
+    {
+      "id": "sample-ai-19-b",
+      "style": "时尚大片",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 时尚大片. Required defining makeup details: 现代美妆摄影，突出妆面结构和光影设计. Makeup palette: 深棕与亮红. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740631074
+    },
+    {
+      "id": "sample-ai-20-a",
+      "style": "创意彩妆",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 创意彩妆. Required defining makeup details: 以眼妆作为创作重点，清楚的色彩和图形设计. Makeup palette: 湖蓝与柠檬黄. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740614840
+    },
+    {
+      "id": "sample-ai-20-b",
+      "style": "创意彩妆",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 创意彩妆. Required defining makeup details: 以眼妆作为创作重点，清楚的色彩和图形设计. Makeup palette: 紫罗兰与珊瑚. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740570321
+    },
+    {
+      "id": "sample-ai-21-a",
+      "style": "珠光人鱼",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 珠光人鱼. Required defining makeup details: 细腻珠光眼妆、局部湿润光泽与清透底妆. Makeup palette: 贝母粉与淡紫. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740681141
+    },
+    {
+      "id": "sample-ai-21-b",
+      "style": "珠光人鱼",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 珠光人鱼. Required defining makeup details: 细腻珠光眼妆、局部湿润光泽与清透底妆. Makeup palette: 海蓝与银白. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740614841
+    },
+    {
+      "id": "sample-ai-22-a",
+      "style": "金属未来",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 金属未来. Required defining makeup details: 局部金属质感、利落线条与极简未来感造型. Makeup palette: 银灰与冰蓝. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740710079
+    },
+    {
+      "id": "sample-ai-22-b",
+      "style": "金属未来",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 金属未来. Required defining makeup details: 局部金属质感、利落线条与极简未来感造型. Makeup palette: 铬银与冷紫. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740681147
+    },
+    {
+      "id": "sample-ai-23-a",
+      "style": "国风东方",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: 国风东方. Required defining makeup details: 细长柔和的眉眼，留白妆面与东方美妆构图. Makeup palette: 胭脂与黛色. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740745791
+    },
+    {
+      "id": "sample-ai-23-b",
+      "style": "国风东方",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: 国风东方. Required defining makeup details: 细长柔和的眉眼，留白妆面与东方美妆构图. Makeup palette: 茶棕与朱砂. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740745793
+    },
+    {
+      "id": "sample-ai-24-a",
+      "style": "Y2K辣妹",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 26, never a collage. Target makeup style: Y2K辣妹. Required defining makeup details: 清晰眼线、局部闪片与有光泽的唇妆. Makeup palette: 冰蓝与裸粉. Individual adult face with believable proportions, relaxed direct gaze; loose dark hair or a hairstyle appropriate to this makeup style, simple ivory clothing, gentle frontal daylight with a visible soft shadow, authentic pale warm interior background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740745794
+    },
+    {
+      "id": "sample-ai-24-b",
+      "style": "Y2K辣妹",
+      "width": 1086,
+      "height": 1448,
+      "source": "imagegen built-in",
+      "prompt": "Use case: photorealistic-natural. Asset type: standalone makeup reference photo for a professional makeup artist's application. Create ONE vertical 3:4 head-and-shoulders photograph of one fictional adult woman aged 31, never a collage. Target makeup style: Y2K辣妹. Required defining makeup details: 清晰眼线、局部闪片与有光泽的唇妆. Makeup palette: 银色与莓粉. Distinctive adult face, gently turned three-quarter profile with relaxed expression; dark brown hair styled in a loose updo with fine flyaways, simple textured dark blouse, soft side window light and an actual subtly textured gray room background. For bridal styles coordinate a tasteful bridal garment and hair ornament; for beach styles use natural outdoor seaside shade; for creative styles show actual makeup pigments and real accessories. Prioritize makeup visibility, recognizable style and convincing natural skin and lips: subtle pores, tiny tonal variations, natural lip lines, fine individual hairs, realistic clothing texture and restrained local highlights. It should look like a real camera photograph from a skilled makeup artist, with natural facial asymmetry and realistic human anatomy. Do not render plastic doll skin, CGI, illustration, heavy digital smoothing, exaggerated eyes, text, watermarks, frames, contact sheets or user interface.",
+      "createdAt": 1792740781216
+    }
+  ]
+}
