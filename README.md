@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-打开 **http://127.0.0.1:5188/**。前端为 5188，本地后端为 5189；两者仅监听本机。固定端口被占用时会报错，不会自动切换地址。
+打开 **http://127.0.0.1:5188/**。前端为 5188，本地后端为 5189，Instagram 图片及授权回调服务为 5191；均只监听本机。固定端口被占用时会报错，不会自动切换地址。
 
 ```bash
 npm test
@@ -36,18 +36,50 @@ npm run build
 
 已有图片根据原任务批次归组；旧项目文案保留，并迁移一份到项目封面所属的作品组。升级前已在本机创建数据库备份。
 
+## 登录与游客体验
+
+首次进入可直接浏览示例、编辑创作、导入作品和保存体验草稿。工作空间设置、AI 服务凭据、Instagram 连接及发布接口需要登录。真实 AI 调用使用各自账号配置的服务，游客不共享默认账号的密钥。
+
+右上角提供邮箱密码注册、登录和退出。登录时可以选择将本次游客作品、创作描述和文案带入账号，既有账号配置不会被覆盖。退出后返回原游客空间；其他已打开的窗口同步切换。游客和不同账号的项目、素材、文案、人员信息、服务密钥及 Instagram 连接各自隔离。
+
+默认账号为 `tianyuyezi@gmail.com`，沿用原工作空间的数据路径及凭据命名空间；其他账号存放在数据目录的 `users/<UUID>/`，游客位于 `guests/<UUID>/`。认证数据单独存入 `auth.sqlite`，不包含在资料导出中。密码仅保存带独立盐的 scrypt 哈希；登录会话使用 HttpOnly、SameSite Cookie，退出即撤销，HTTPS 部署启用 Secure。API 同时校验 CSRF 与当前工作空间，防止旧窗口将资料写入另一个账号。
+
+本机默认账号已初始化。全新安装可运行 `npm run accounts:init`，在终端不回显地输入初始密码；此命令只初始化尚未设置密码的默认账号，不覆盖既有密码。初始密码不会写入项目代码或环境示例。当前为本地邮箱密码注册，尚未接入邮件验证或找回密码邮件。
+
 ## 快速工作流
 
 侧栏新增“快速工作流”，四步共用同一作品组，进度自动保存：
 
 1. **生成图片**：复用图片工作台，提交后自动进入确认作品；也可跳过生图，选择已有作品组或导入照片。
-2. **确认作品**：选择发布图片、调整顺序和封面。最多 20 张，进入下一步时固定所选图片；空选图不能继续。
+2. **确认作品**：作品组选择器先按缩略图、数量和创建时间浏览，可搜索、逐张预览及放大原图；确认「使用这组作品」后才切换，继续使用同组会保留选图与封面顺序。选择发布图片、调整顺序和封面。最多 20 张，进入下一步时固定所选图片；空选图不能继续。
 3. **三语文案**：只将所选图片发送给文案服务，整组共用一套中英韩文案，保留语言锁定和人工修改。选择的发布语言会带到下一步。
-4. **发布准备**：预览多图帖子，保存本地排期草稿，或导出原图、文案、排期信息组成的 ZIP。草稿保存图片顺序和文案快照，后续编辑需重新保存才会替换；不需要额外新建项目。
+4. **发布到 Instagram**：保存草稿或导出原图 ZIP；连接专业账号后，预览实际适配图和文案，再明确确认立即发布或启用定时预约。不需要额外新建项目。
 
-作品组卡片、作品详情和发布日历均可继续工作流。Instagram 授权与实发尚未接入，最后一步明确显示本地草稿状态，不会向外发布。
+作品组卡片、作品详情和发布日历均可继续工作流。日历草稿不会自动转为发布任务，必须在第 4 步预览并确认。
+
+### 化妆师、发布人与最终发布标识
+
+在「设置与连接 → 化妆师与发布人」分别保存姓名、微信、电话、WhatsApp、邮箱及其他联系信息，全部选填。发布文案按所选语言追加角色称呼及已填写的信息，位于正文和话题标签的最末尾；复制文案、原图素材包的文案也包含该联系信息。
+
+创作效果图、作品库和导出的原图始终不加水印。最终 Instagram 发布副本默认在底部添加 `Shanghai At-Home Makeup Artist` 与 `상하이 출장 메이크업 아티스트`，可以修改文字或关闭。发布确认页展示实际加字的 JPEG 和完整联系文案，确认过的图片与文案按当时配置保存，不随后续设置变化。韩文使用附带 SIL OFL 许可的 Noto Sans KR 字体，无需系统安装字体。最终文案连同联系方式一起检查 Instagram 字数限制。
 
 新增参考图使用内置 imagegen 生成，文件位于 `public/images/examples/`，完整提示词位于 `public/images/examples/prompt-set.json`；安装与清单整理脚本仅复制、生成缩略图和整理元数据，不包含 API 密钥或联网调用。
+
+## Instagram 发布接入
+
+在「设置与连接 → Instagram 连接」或「发布排期 → Instagram 账号」中配置：
+
+1. 将普通 Instagram 账号转为商业或创作者账号。官方发布 API 不支持普通账号。
+2. 在 Meta 开发者后台创建应用并设置 **Instagram API with Instagram Login**。自己的测试账号可先使用 Standard Access；为其他人的账号提供服务通常需要应用审核及相应权限。
+3. 将自己管理的 HTTPS 域名或隧道指向本机 **5191** 端口。这里只提供 `/instagram/media/...` 临时签名图片和 `/instagram/callback`，不提供工作空间接口。不要公开 5188／5189 端口。本项目不会自动创建隧道、上传到第三方图床或部署线上服务。
+4. 保存 HTTPS 地址、Instagram App ID 和 App Secret，在 Meta 后台登记完全一致的 `https://你的域名/instagram/callback`，点击授权。也可以直接输入应用后台生成的 Instagram Login 访问令牌。
+5. 需要 `instagram_business_basic`、`instagram_business_content_publish` 权限。凭据仅存系统钥匙串（非 macOS 仅进程内存），不写入 SQLite、浏览器存储或导出。长效授权在即将到期且满足刷新条件时于使用前刷新；失效后需重新连接。
+6. 在快速工作流第 4 步选择账号，检查 **实际提交的 JPEG 图**、封面、顺序和文案，再确认发布。1–20 张图片，最多 2200 字符／30 个话题／20 个提及。图片统一为首图比例并限制在 4:5–1.91:1，超出部分用白边补齐，不裁切人物。生成图自动携带 AI 内容标记，多图仅在父容器标记。
+7. 预约是本机调度：电脑、应用及公开图片地址需要在线。服务启动时已错过的预约、休眠超过 90 秒的预约会转为「待确认」，不会集中补发。断开账号会取消其尚未执行的预约。
+
+发布操作按请求编号及内容快照去重，记录每个容器及提交状态。提交网络结果不明确时进入「结果待核实」，不会自动重试；使用「回查状态」读取 Meta 容器结果。该账号结果未核实前暂停新提交。服务中断后同样不会重发。已明确成功但帖子链接暂未获取时仍保留成功状态；回查确认成功但未取得帖子 ID 时需到账号内查看。
+
+参考官方文档（2026-10-23 核对）：[内容发布](https://developers.facebook.com/docs/instagram-platform/content-publishing/)、[Instagram Login](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/business-login/)、[图片与文案参数](https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media/)。Graph API 默认 v26.0，可在本地连接设置中调整版本。某些官方页面的额度说明不一致，发布前读取账号实际 `content_publishing_limit`，不硬编码每日额度。
 
 ## 提示词中心
 
@@ -109,13 +141,13 @@ assets/<id>/           原图及缩略图
 YZ_DATA_DIR="/absolute/path/to/yuezhuang-data" npm run dev
 ```
 
-`.env.example` 是环境变量说明，程序不会自动加载 `.env`。不要把 API 密钥写入其中。非 macOS 环境暂仅在服务进程内保存密钥，重启后需重新输入。
+`.env.example` 是环境变量说明，程序不会自动加载 `.env`。不要把 API 密钥写入其中。非 macOS 环境默认仅在服务进程内保存密钥，重启后需重新输入。服务器部署可设置 `YZ_CREDENTIAL_DIR`，使用独立主密钥和 AES-256-GCM 加密文件持久保存凭据；凭据目录权限为 700，文件权限为 600。
 
 ## 当前边界
 
-Instagram 授权、实际发布、定时执行、Electron 安装包和备份恢复界面尚未实现。发布月历只保存草稿，不会向任何账号发布。内置参考分为 6 张摄影示例和 48 张 AI 风格示例，均明确标注来源。
+Instagram 已接入官方 Instagram Login 授权、专业账号令牌连接、单图／多图发布、结果回查和本地预约。真实联调需要用户准备专业账号、Meta 应用和图片的公开 HTTPS 地址；目前通过隔离模拟服务验证，未发布真实帖子。Electron 安装包和备份恢复界面尚未实现。内置参考分为 6 张摄影示例和 48 张 AI 风格示例，均明确标注来源。
 
-任务面板显示最近 100 条任务；提示词中心分页保留全部图片生成记录，导出也保留这些记录。当前资料保存在本机，没有部署在线库或提供跨设备同步。旧项目排期草稿继续兼容；快速工作流已支持关联作品组、选图和文案快照，Instagram 实发将在账号接入阶段完善。
+任务面板显示最近 100 条任务；提示词中心分页保留全部图片生成记录，导出也保留这些记录。默认资料保存在本机；独立服务器部署将资料保存在服务器 SQLite 和素材目录，同一服务下的设备共享工作空间。旧项目排期草稿继续兼容；快速工作流已支持关联作品组、选图和文案快照，发布记录独立保存在服务端，删除原草稿不影响已经确认的发布快照。导出包含账号资料、发布记录和非敏感配置，不含凭据及发布适配图文件。
 
 ## 代码与文档
 
@@ -139,3 +171,76 @@ server/app.ts          本机会话、请求校验及 API
 - [实施计划](docs/IMPLEMENTATION_PLAN.md)
 - [图片来源](docs/IMAGE_CREDITS.md)
 - 接口参考：[图片生成](https://developers.openai.com/api/docs/guides/image-generation)、[结构化输出](https://developers.openai.com/api/docs/guides/structured-outputs)
+
+
+## 独立服务器部署
+
+当前部署入口：`https://ins-fb.tianyuyezi.com`。网站采用 Nginx HTTPS，直接进入游客页面；个人资料、服务配置和发布操作由网站内部账号登录保护。工作台端口仍仅监听本机。2026-10-23 已迁入本机工作空间、全部素材文件及历史备份，并将本机已保存的 AI API 密钥、Instagram 账号令牌和图片签名密钥转存为服务器加密凭据；原线上数据已单独备份。
+
+- 应用：`/opt/yuezhuang-studio/current`，发布版本保存在 `releases/`。
+- 服务：`yuezhuang-studio.service`，专用系统用户 `yuezhuang`，开机启动和异常重启。
+- 数据：`/var/lib/yuezhuang-studio/data`；加密凭据：`/var/lib/yuezhuang-studio/credentials`。
+- 主服务仅监听 `127.0.0.1:5189`，公开签名图片及 OAuth 回调仅监听 `127.0.0.1:5191`。
+- `YZ_PUBLIC_ORIGIN` 显式允许 HTTPS 域名并设置 Secure 会话 Cookie；默认本机访问策略仍保留。
+- Nginx 仅将 `/instagram/media/` 和 `/instagram/callback` 转发至公开监听器，其余路径转发至包含账号权限校验的工作台服务。
+- HTTPS 证书由现有 Certbot 定时续期，独立续期钩子负责检测配置并平滑加载证书。
+- 服务限制为 768 MB 内存与一核 CPU 配额；构建在本机完成，避免挤占现有项目资源。
+
+配置模板位于 `deploy/`，仅用于这个域名和服务。更新时运行 `npm ci`、`npm run build`、`npm test`，将锁文件、`server/`、`src/`、`dist/`、`public/` 上传到新的发布目录，在 Linux 上安装依赖，随后切换 `current` 链接并重启本项目服务。macOS 打包应使用 `COPYFILE_DISABLE=1 tar --no-xattrs` 避免携带扩展属性。不要上传本机 `node_modules`、数据库或钥匙串。
+
+运行检查：
+
+```bash
+sudo systemctl status yuezhuang-studio --no-pager
+sudo journalctl -u yuezhuang-studio -n 80 --no-pager
+curl http://127.0.0.1:5189/api/health
+sudo nginx -t
+```
+
+备份时使用 SQLite 在线备份接口，或先停止本项目服务后复制完整数据与凭据目录，再启动服务。凭据目录含主密钥，应以同等敏感程度保护；浏览器导出不包含凭据。回滚代码时切回旧版本并重启本项目；若涉及数据库结构升级，应一并恢复匹配的数据备份。
+
+本机现有 AI 服务和 Instagram 账号配置已迁移。Instagram 公开地址填写 `https://ins-fb.tianyuyezi.com`，Meta OAuth 回调登记 `https://ins-fb.tianyuyezi.com/instagram/callback`。真实生成与发帖仍需要用户自己的可用密钥、账号权限以及服务器可达对应供应商。
+
+
+部署验收（2026-10-23）：本机构建成功，96 项测试通过；服务器以专用用户通过 6 项部署与双语发布图测试。线上已检查 HTTPS、未登录访问拦截、会话和 CSRF、工作空间读写、图片上传／原图／缩略图、完整备份导出、重启后资料及 Instagram 公开地址保留。三个原有站点在部署前后均返回 HTTP 200。迁移后 AI 模型目录连接测试通过，返回 26 个模型；未触发付费生成或新增真实帖子。Instagram 凭据已迁移；随后配置项目专用 Trojan 出站代理，账号资料与发布额度检查已通过。应用本机未保存 App Secret，浏览器重新授权前需补齐该项。
+
+
+本机资料迁移验收（2026-10-23）：2 个项目、31 张有效素材（共 32 条素材记录，含已软删除项）、13 个自建模特、28 条 AI 任务、21 条提示词历史、3 条提示词模板、3 个优质参考、1 条发布草稿、1 个 Instagram 账号和 1 条既有发布记录已保留。迁移前后校验所有 32 个原图 SHA-256、缩略图存在性及数据库表行数；重启后 3 项加密凭据仍可读取。Instagram 公开地址已替换为正式域名。迁移前线上数据保存在 `/var/backups/yuezhuang-studio/before-local-migration-20261023-184226/`；本机原资料未改动。
+
+Instagram 网络诊断（配置代理前）：系统解析器和多个普通 UDP DNS 返回异常 IPv4。通过外部 HTTPS DNS 获取的两个 Meta 地址 `57.144.186.192`、`157.240.15.63` 均可建立 TCP 443 连接，但以 `graph.instagram.com` 为服务器名称的 TLS 握手超时。百度、npm 和 Cloudflare HTTPS 对照正常；UFW 未启用，出站 iptables 为 ACCEPT，nftables 仅有入站 SSH 防护规则。证据指向到 Meta 的链路问题；未修改系统 DNS、防火墙或其他项目。仅更换 DNS 无法解决本次观测到的 TLS 超时。
+
+
+## 项目专用出站代理
+
+2026-10-23 已在服务器配置 sing-box 1.14.3，使用用户提供的 `sg-1.tr202613.com:443` Trojan 节点，保持 TLS 证书和服务器名称校验。官方 Linux amd64 发布包的 SHA-256 已核对。代理仅在 `127.0.0.1:17890` 提供需要认证的 HTTP／SOCKS 入口；没有公开代理端口，也未修改系统路由、系统 DNS 或其他项目的代理配置。
+
+- 独立服务：`yuezhuang-proxy.service`，开机启动、失败重启，专用系统用户，内存上限 160 MB。
+- 节点配置：`/etc/yuezhuang-proxy/config.json`，权限 640，仅 root 和代理服务用户可读。
+- 用户提供的订阅来源记录：`/etc/yuezhuang-proxy/source.json`，仅 root 可读。该订阅地址目前返回 HTTP 403，未配置订阅自动更新；当前按用户提供的完整节点参数运行。
+- 工作台代理环境：`/etc/yuezhuang-studio/proxy.env`，仅 root 可读，由 systemd 读取并仅注入本项目进程。
+- 通过独立的 `yuezhuang-studio.service.d/proxy.conf` 加载配置，开启 Node.js 原生环境代理。回环请求和当前 AI 服务地址绕过代理。
+- 仓库中的 `deploy/yuezhuang-proxy.service` 和 `deploy/yuezhuang-studio-proxy.conf` 为无凭据模板；真实节点密码、本机代理密码和订阅链接不保存在仓库。
+
+已验证 Instagram 网页与 API 的 HTTPS 连接、Node.js fetch 经过代理、实际 Instagram 账号资料与发布额度接口成功返回、AI 模型目录连接正常，以及原有三个网站仍返回 200。未触发新的真实帖子。
+
+维护命令：
+
+```bash
+sudo systemctl status yuezhuang-proxy yuezhuang-studio --no-pager
+sudo journalctl -u yuezhuang-proxy -n 50 --no-pager
+sudo /usr/local/lib/yuezhuang-proxy/sing-box check -c /etc/yuezhuang-proxy/config.json
+```
+
+修改节点后检查配置，再重启 `yuezhuang-proxy`。取消本项目代理时，仅移除专用的 `proxy.conf`，执行 systemd 配置重载并重启本项目，不需要调整其他站点。代理环境文件包含本机代理认证信息，不应直接打印或提交。
+
+配置参考：[sing-box Trojan 出站](https://sing-box.sagernet.org/configuration/outbound/trojan/)、[sing-box mixed 入口](https://sing-box.sagernet.org/configuration/inbound/mixed/)、[Node.js v22.22.2 环境代理](https://github.com/nodejs/node/blob/v22.22.2/doc/api/cli.md#--use-env-proxy)。
+
+
+## 最近一次线上同步
+
+2026-10-23 已将本机最新账号版代码与数据同步至发布目录 `/opt/yuezhuang-studio/releases/20261023-1928`，`current` 已切换到该版本。同步的数据版本为工作空间 revision 218：2 个项目、35 张有效素材、13 个自建模特、30 条 AI 任务和 2 条既有 Instagram 发布记录；同时保留提示词、人员配置、历史备份、账号数据库及本机已保存的凭据。账号数据库中的密码哈希保持不变，使用本机相同邮箱和密码登录即可查看原资料；已按用户要求关闭原有 Nginx 访问密码，仅保留网站内部账号登录。
+
+同步前的线上数据和加密凭据已备份至 `/var/backups/yuezhuang-studio/before-sync-20261023-192836/`，其中 `previous-release.txt` 记录回滚版本。域名、HTTPS、代理服务及其认证配置均保持原状。本机与服务器分别通过全部 103 项测试；线上已检查账号工作空间、游客隔离、原图和缩略图、AI 模型目录及 Instagram 账号额度，三个原有网站继续返回 200。迁移期间没有触发新的真实帖子。
+
+
+代码发布记录（2026-10-23）：最新代码已发布至 `/opt/yuezhuang-studio/releases/20261023-2031`。此次仅发布代码，线上工作空间 revision 220、素材、账号和已保存凭据保持原状；发布前已将运行数据与凭据备份至 `/var/backups/yuezhuang-studio/before-code-publish-20261023-203242/`，旧代码路径记录在其中的 `previous-release.txt`。本机及服务器各通过 108 项测试，线上首页、主脚本和样式文件与本次构建逐字节匹配；AI 和 Instagram 账号检查成功，三个其他网站继续正常访问。Nginx 的额外浏览器密码保护保持关闭，项目内部登录和出站代理配置不变。

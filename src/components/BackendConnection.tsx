@@ -4,6 +4,7 @@ import { useBackend } from '../stores/backend'
 import { api } from '../lib/api'
 import { flushWorkspace, initializeBackend, refreshWorkspace } from '../lib/sync'
 import { Button } from './ui'
+import { useAuth } from '../stores/auth'
 
 export function BackendConnection() {
   const backend = useBackend()
@@ -15,16 +16,17 @@ export function BackendConnection() {
     const poll = async () => {
       if (polling || stopped) return
       polling = true
+      const identity = useAuth.getState().workspaceKey
       try {
         if (useBackend.getState().status !== 'ready') await initializeBackend()
         else {
           if (useBackend.getState().error) await flushWorkspace()
           const jobs = await api.jobs()
-          if (!stopped) useBackend.setState({ jobs })
-          if (++tick % 4 === 0) { const provider = await api.provider(); if (!stopped) useBackend.setState({ provider }) }
+          if (!stopped && identity === useAuth.getState().workspaceKey) useBackend.setState({ jobs })
+          if (++tick % 4 === 0) { const provider = await api.provider(); if (!stopped && identity === useAuth.getState().workspaceKey) useBackend.setState({ provider }) }
           await refreshWorkspace()
         }
-      } catch (error) { if (!stopped) useBackend.setState({ error: error instanceof Error ? error.message : '本地服务连接中断。' }) }
+      } catch (error) { if (!stopped && identity === useAuth.getState().workspaceKey) useBackend.setState({ error: error instanceof Error ? error.message : '本地服务连接中断。' }) }
       finally { polling = false }
     }
     const timer = setInterval(() => { void poll() }, 2500)

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { createJSONStorage, persist } from 'zustand/middleware'
 import { emptyCaptions, INITIAL_DRAFT, INITIAL_WORKFLOW } from '../lib/data'
+import { captionText, selectedWorkflowAssets } from '../lib/workflow'
 import type { Asset, Caption, CaptionSet, CreationDraft, Language, ModelProfile, PageId, Project, PublishDraft, Settings, WorkGroup, WorkflowState } from '../lib/types'
 
 interface Workspace {
@@ -38,6 +38,7 @@ interface Workspace {
   removeModel: (id: string) => void
   updateCaption: (projectId: string, language: Language, value: Partial<Caption>) => void
   openGroupCaptions: (groupId: string) => void
+  openGroupPublishing: (groupId: string, language: Language, assetIds?: string[]) => void
   updateGroupCaption: (groupId: string, language: Language, value: Partial<Caption>) => void
   useExampleCaptions: (projectId: string, example: CaptionSet) => void
   addPublishDraft: (draft: PublishDraft) => void
@@ -45,19 +46,7 @@ interface Workspace {
   updateSettings: (settings: Partial<Settings>) => void
 }
 
-const guardedStorage: Storage = {
-  get length() { return localStorage.length },
-  key: (index) => localStorage.key(index),
-  getItem: (key) => localStorage.getItem(key),
-  removeItem: (key) => localStorage.removeItem(key),
-  clear: () => localStorage.clear(),
-  setItem: (key, value) => {
-    try { localStorage.setItem(key, value) }
-    catch { window.dispatchEvent(new CustomEvent('workspace-storage-error')) }
-  },
-}
-
-export const useWorkspace = create<Workspace>()(persist((set, get) => ({
+export const useWorkspace = create<Workspace>()((set, get) => ({
   page: 'studio', workflow: { ...INITIAL_WORKFLOW }, draft: { ...INITIAL_DRAFT }, projects: [], activeProjectId: null,
   updateWorkflow: (data) => set((state) => ({ workflow: { ...state.workflow, ...data } })),
   startWorkflow: (groupId) => set((state) => ({ page: 'workflow', workflow: { ...INITIAL_WORKFLOW, language: state.settings.language, ...(groupId ? { step: 2 as const, groupId } : {}) } })),
@@ -110,6 +99,20 @@ export const useWorkspace = create<Workspace>()(persist((set, get) => ({
     return { captions: { ...state.captions, [projectId]: { ...captions, [language]: { ...captions[language], ...value } } } }
   }),
   openGroupCaptions: (copyGroupId) => set({ copyGroupId, page: 'copywriting' }),
+  openGroupPublishing: (groupId, language, assetIds) => set((state) => {
+    const group = state.workGroups.find((item) => item.id === groupId)
+    if (!group) return {}
+    const sameGroup = state.workflow.groupId === groupId
+    const previousSelection = sameGroup ? state.workflow.assetIds : null
+    const selection = selectedWorkflowAssets(group, state.importedAssets, assetIds ?? previousSelection ?? group.assetIds).map((asset) => asset.id)
+    const sameSelection = sameGroup && JSON.stringify(selection) === JSON.stringify(selectedWorkflowAssets(group, state.importedAssets, previousSelection).map((asset) => asset.id))
+    const caption = (state.groupCaptions[groupId] ?? emptyCaptions())[language]
+    const step = !selection.length || selection.length > 20 ? 2 : captionText(caption).trim() ? 4 : 3
+    return {
+      page: 'workflow', copyGroupId: groupId,
+      workflow: { ...(sameSelection ? state.workflow : INITIAL_WORKFLOW), groupId, language, assetIds: selection.length > 20 ? [] : selection, step },
+    }
+  }),
   updateGroupCaption: (groupId, language, value) => set((state) => {
     const captions = state.groupCaptions[groupId] ?? emptyCaptions()
     return { groupCaptions: { ...state.groupCaptions, [groupId]: { ...captions, [language]: { ...captions[language], ...value } } } }
@@ -122,4 +125,9 @@ export const useWorkspace = create<Workspace>()(persist((set, get) => ({
   addPublishDraft: (draft) => set((state) => ({ publishDrafts: [draft, ...state.publishDrafts.filter((p) => p.id !== draft.id)] })),
   removePublishDraft: (id) => set((state) => ({ publishDrafts: state.publishDrafts.filter((d) => d.id !== id) })),
   updateSettings: (settings) => set((state) => ({ settings: { ...state.settings, ...settings } })),
-}), { name: 'yuezhuang-workspace-v1', version: 1, storage: createJSONStorage(() => guardedStorage) }))
+}))
+
+export function clearWorkspace() {
+  const page = useWorkspace.getState().page
+  useWorkspace.setState({ page, workflow: { ...INITIAL_WORKFLOW }, draft: { ...INITIAL_DRAFT }, projects: [], activeProjectId: null, importedAssets: [], hiddenExamples: [], favorites: [], customModels: [], captions: {}, workGroups: [], groupCaptions: {}, copyGroupId: null, promptHistoryId: null, promptReferenceId: null, publishDrafts: [], settings: { studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' } })
+}

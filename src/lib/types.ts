@@ -1,3 +1,5 @@
+import type { PublicationBranding } from '../shared/publication-branding'
+
 export type PageId = 'workflow' | 'studio' | 'projects' | 'assets' | 'models' | 'prompts' | 'copywriting' | 'publishing' | 'settings'
 export type Language = 'zh' | 'en' | 'ko'
 export type CreationMode = 'virtual' | 'edit'
@@ -98,4 +100,5 @@ export interface Settings {
   artistName: string
   language: Language
   timezone: string
+  publicationBranding?: PublicationBranding
 }

@@ -1,0 +1,23 @@
+[Unit]
+Description=YueZhuang Studio outbound Trojan proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yuezhuang-proxy
+Group=yuezhuang-proxy
+ExecStart=/usr/local/lib/yuezhuang-proxy/sing-box run -c /etc/yuezhuang-proxy/config.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+MemoryMax=160M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,32 @@
+[Unit]
+Description=YueZhuang Studio
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=yuezhuang
+Group=yuezhuang
+WorkingDirectory=/opt/yuezhuang-studio/current
+Environment=NODE_ENV=production
+Environment=YZ_SERVER_PORT=5189
+Environment=YZ_INSTAGRAM_PORT=5191
+Environment=YZ_DATA_DIR=/var/lib/yuezhuang-studio/data
+Environment=YZ_CREDENTIAL_DIR=/var/lib/yuezhuang-studio/credentials
+Environment=YZ_PUBLIC_ORIGIN=https://ins-fb.tianyuyezi.com
+Environment=NODE_OPTIONS=--max-old-space-size=384
+ExecStart=/usr/local/bin/node /opt/yuezhuang-studio/current/node_modules/tsx/dist/cli.mjs server/index.ts
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/yuezhuang-studio
+MemoryMax=768M
+CPUQuota=100%
+
+[Install]
+WantedBy=multi-user.target

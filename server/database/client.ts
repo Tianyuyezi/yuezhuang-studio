@@ -5,7 +5,7 @@ import { mkdirSync, chmodSync } from 'node:fs'
 import { join } from 'node:path'
 import { randomUUID } from 'node:crypto'
 import * as schema from './schema'
-import { draftSchema, workspaceSchema } from '../../src/shared/contracts'
+import { draftSchema, settingsSchema, workspaceSchema } from '../../src/shared/contracts'
 import type { WorkspaceData, AIJob } from '../../src/shared/contracts'
 import { INITIAL_DRAFT, INITIAL_WORKFLOW } from '../../src/lib/data'
 import { SAMPLE_ASSET_IDS } from '../../src/shared/examples'
@@ -13,7 +13,7 @@ import { AppError } from '../errors'
 import { buildWorkGroups } from '../../src/lib/groups'
 
 export function initialWorkspace(): WorkspaceData {
-  return { page: 'studio', workflow: { ...INITIAL_WORKFLOW }, draft: draftSchema.parse(INITIAL_DRAFT), projects: [], activeProjectId: null, hiddenExamples: [], favorites: [], customModels: [], captions: {}, groupCaptions: {}, publishDrafts: [], settings: { studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' } }
+  return { page: 'studio', workflow: { ...INITIAL_WORKFLOW }, draft: draftSchema.parse(INITIAL_DRAFT), projects: [], activeProjectId: null, hiddenExamples: [], favorites: [], customModels: [], captions: {}, groupCaptions: {}, publishDrafts: [], settings: settingsSchema.parse({ studioName: '悦妆工作室', artistName: '工作室主理人', language: 'zh', timezone: 'Asia/Shanghai' }) }
 }
 
 export class StudioDatabase {
@@ -31,7 +31,7 @@ export class StudioDatabase {
   }
   migrate() {
     const version = this.sqlite.pragma('user_version', { simple: true }) as number
-    if (version > 4) throw new AppError('DATABASE_VERSION', '数据库版本较新，请使用匹配的应用版本。', 500)
+    if (version > 5) throw new AppError('DATABASE_VERSION', '数据库版本较新，请使用匹配的应用版本。', 500)
     if (version === 0) this.sqlite.transaction(() => {
       this.sqlite.exec(`
         CREATE TABLE workspace_state (id INTEGER PRIMARY KEY CHECK(id=1), revision INTEGER NOT NULL, payload TEXT NOT NULL CHECK(json_valid(payload)), updated_at INTEGER NOT NULL);
@@ -78,6 +78,15 @@ export class StudioDatabase {
         CREATE TABLE IF NOT EXISTS quality_preferences (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT NOT NULL CHECK(json_valid(payload)));`)
       this.sqlite.pragma('user_version = 4')
     })()
+    if (version < 5) this.sqlite.transaction(() => {
+      this.sqlite.exec(`CREATE TABLE IF NOT EXISTS instagram_config (id INTEGER PRIMARY KEY CHECK(id=1), payload TEXT NOT NULL CHECK(json_valid(payload)));
+        INSERT OR IGNORE INTO instagram_config VALUES (1,'{"appId":"","publicBaseUrl":"","apiVersion":"v26.0"}');
+        CREATE TABLE IF NOT EXISTS instagram_accounts (id TEXT PRIMARY KEY, payload TEXT NOT NULL CHECK(json_valid(payload)));
+        CREATE TABLE IF NOT EXISTS instagram_publications (id TEXT PRIMARY KEY, request_id TEXT NOT NULL UNIQUE, fingerprint TEXT NOT NULL, status TEXT NOT NULL, payload TEXT NOT NULL CHECK(json_valid(payload)), updated_at INTEGER NOT NULL);
+        CREATE UNIQUE INDEX IF NOT EXISTS instagram_snapshot_once ON instagram_publications(fingerprint) WHERE status NOT IN ('failed','cancelled');
+        CREATE INDEX IF NOT EXISTS instagram_publication_status ON instagram_publications(status,updated_at);`)
+      this.sqlite.pragma('user_version = 5')
+    })()
   }
   snapshot() {
     const row = this.db.select().from(schema.workspaceTable).where(eq(schema.workspaceTable.id, 1)).get()!
@@ -99,6 +108,8 @@ export class StudioDatabase {
     return this.db.transaction(() => {
       const current = this.snapshot()
       if (current.revision !== expectedRevision) throw new AppError('VERSION_CONFLICT', '资料已在另一窗口或任务中更新，请合并后重试。', 409)
+      // A still-open older client must not erase the newly configured contact profiles.
+      if (!input.settings.publicationBranding) parsed.settings.publicationBranding = current.state.settings.publicationBranding
       // Old browser windows may omit group captions during a rolling frontend update.
       const groups = new Set(this.groups(parsed).map((g) => g.id))
       parsed.groupCaptions = Object.fromEntries(Object.entries({ ...current.state.groupCaptions, ...parsed.groupCaptions }).filter(([id]) => groups.has(id)))

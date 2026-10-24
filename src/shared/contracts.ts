@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { publicationBrandingSchema } from './publication-branding'
 
 export const idSchema = z.string().regex(/^(?:[0-9a-f-]{36}|sample-0[1-6]|sample-ai-(?:0[1-9]|1[0-9]|2[0-4])-[ab]|model-0[1-3])$/i)
 export const languageSchema = z.enum(['zh', 'en', 'ko'])
@@ -14,6 +15,7 @@ export const captionSetSchema = z.object({ zh: captionSchema, en: captionSchema,
 export const settingsSchema = z.object({
   studioName: z.string().trim().min(1).max(30), artistName: z.string().trim().min(1).max(40), language: languageSchema,
   timezone: z.string().max(80).refine((value) => { try { new Intl.DateTimeFormat('en', { timeZone: value }); return true } catch { return false } }, '无效时区'),
+  publicationBranding: publicationBrandingSchema.default(() => publicationBrandingSchema.parse({})),
 })
 export const projectSchema = z.object({
   id: z.uuid(), title: z.string().trim().min(1).max(60), artist: z.string().max(40), description: z.string().max(500),
@@ -43,7 +45,7 @@ export const providerSchema = z.object({
   imageModel: z.string().trim().min(1).max(100), textModel: z.string().trim().min(1).max(100), allowInsecureHttp: z.boolean(),
 })
 export type ProviderConfig = z.infer<typeof providerSchema>
-export interface ProviderStatus extends ProviderConfig { hasKey: boolean; credentialStorage: 'keychain' | 'session'; verifiedAt: number | null; models: string[] }
+export interface ProviderStatus extends ProviderConfig { hasKey: boolean; credentialStorage: 'keychain' | 'session' | 'encrypted-file'; verifiedAt: number | null; models: string[] }
 export type JobStatus = 'queued' | 'running' | 'succeeded' | 'partial' | 'failed' | 'cancelled' | 'interrupted'
 export interface AIJob {
   id: string; kind: 'image' | 'caption'; projectId: string | null; status: JobStatus; model: string;

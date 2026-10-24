@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { createStudioApp } from '../server/app'
+import { createWorkspaceApp as createStudioApp } from '../server/workspace-app'
 import { Keychain } from '../server/security/keychain'
 import type { AIProvider } from '../server/providers/openai-compatible'
 import { initialWorkspace } from '../server/database/client'
@@ -354,7 +354,7 @@ describe('local backend integration (isolated test database; no live requests)',
     const migrated = new StudioDatabase(directory)
     expect(migrated.snapshot().state.groupCaptions[batch.id].zh.body).toBe('旧项目文案')
     expect(migrated.snapshot().state.captions[id].zh.body).toBe('旧项目文案')
-    expect(migrated.sqlite.pragma('user_version', { simple: true })).toBe(4)
+    expect(migrated.sqlite.pragma('user_version', { simple: true })).toBe(5)
     migrated.close()
   })
   it('drops the caption of a group only when its last photo is deleted', async () => {

@@ -11,7 +11,8 @@
     "dev:frontend": "vite --host 127.0.0.1",
     "dev:backend": "tsx watch server/index.ts",
     "start": "NODE_ENV=production tsx server/index.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "accounts:init": "tsx scripts/initialize-owner.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.3.1",

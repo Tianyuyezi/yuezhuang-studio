@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import type { StudioDatabase } from '../database/client'
 import type { AssetService } from './assets'
 import { AppError } from '../errors'
+import { publicationCaption } from '../../src/shared/publication-branding'
 
 function crc32(bytes: Buffer) {
   let crc = 0xffffffff
@@ -30,7 +31,8 @@ export function publicationZip(files: { name: string; bytes: Buffer }[]) {
 }
 
 export async function publicationPackage(database: StudioDatabase, assets: AssetService, id: string) {
-  const draft = database.snapshot().state.publishDrafts.find((p) => p.id === id)
+  const workspace = database.snapshot().state
+  const draft = workspace.publishDrafts.find((p) => p.id === id)
   if (!draft) throw new AppError('NOT_FOUND', '发布草稿不存在或已经删除。', 404)
   const group = database.groups().find((g) => g.id === draft.groupId)
   if (!group || !draft.assetIds?.length || draft.assetIds.some((assetId) => !group.assetIds.includes(assetId))) throw new AppError('PUBLISH_ASSETS_INVALID', '请先在快速工作流中确认这份草稿的发布图片。')
@@ -44,6 +46,7 @@ export async function publicationPackage(database: StudioDatabase, assets: Asset
     const ext = original.mime.includes('png') ? 'png' : original.mime.includes('webp') ? 'webp' : 'jpg'
     files.push({ name: `${String(index + 1).padStart(2, '0')}-${index === 0 ? 'cover' : 'photo'}.${ext}`, bytes })
   }
-  files.push({ name: 'caption.txt', bytes: Buffer.from(draft.caption, 'utf8') }, { name: 'publication.json', bytes: Buffer.from(JSON.stringify({ ...draft, status: 'local_draft', instagramPublished: false }, null, 2)) })
+  const caption = publicationCaption(draft.caption, draft.language, workspace.settings.publicationBranding)
+  files.push({ name: 'caption.txt', bytes: Buffer.from(caption, 'utf8') }, { name: 'publication.json', bytes: Buffer.from(JSON.stringify({ ...draft, caption, status: 'local_draft', instagramPublished: false, originalImages: true, imageWatermarkApplied: false }, null, 2)) })
   return publicationZip(files)
 }
